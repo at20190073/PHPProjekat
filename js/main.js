@@ -77,6 +77,7 @@ $('#btn-izmeni').click(function () {
         console.log(response[0]['IdPro']);
 
         $('#IdArt').val(checked.val());
+        console.log(checked.val());
 
         console.log(response);
     });
@@ -87,24 +88,26 @@ $('#btn-izmeni').click(function () {
 
 });
 
-//dugme za slanje UPDATE zahteva nakon popunjene forme
 $('#izmeniForm').submit(function () {
     event.preventDefault();
-    console.log("Izmene");
+    console.log("Izmena");
     const $form = $(this);
     const $inputs = $form.find('input, select, button, textarea');
+    console.log($inputs);
     const serializedData = $form.serialize();
     console.log(serializedData);
     $inputs.prop('disabled', true);
 
-    // kreirati request za UPDATE handler
+    reqest = $.ajax({
+        url: "handler/update.php",
+        type: "post",
+        data: serializedData,
+    });
 
     request.done(function (response, textStatus, jqXHR) {
-
-
         if (response === 'Success') {
             console.log('Artikl je izmenjen');
-            location.reload(true);
+            location.reload();
         }
         else console.log('Artikl nije izmenjen ' + response);
         console.log(response);

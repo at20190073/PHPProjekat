@@ -54,7 +54,7 @@ class Artikl{
     #update
     public function update($id, mysqli $conn)
     {
-        $query = "UPDATE artikl set cena = $this->cena, naziv = $this->naziv, IdPro = $this->IdPro WHERE IdArt=$id";
+        $query = "UPDATE artikl set cena = '$this->cena', naziv = '$this->naziv', IdPro = '$this->IdPro' WHERE IdArt=$id";
         return $conn->query($query);
     }
 

@@ -160,7 +160,7 @@ if ($podaci->num_rows == 0) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input id="id" type="text" name="id" class="form-control" placeholder="Id *" value="" readonly />
+                                        <input id="id" type="text" name="id" class="form-control idfield" placeholder="Id *" value="" readonly />
                                     </div>
                                     <div class="form-group">
                                         <input id="naziv" type="text" name="naziv" class="form-control" placeholder="Naziv*" value="" />
