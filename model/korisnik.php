@@ -1,6 +1,6 @@
 <?php
 
-class User{
+class Korisnik{
     public $IdKor;
     public $username;
     public $password;
@@ -18,7 +18,7 @@ class User{
 
     public static function logInUser($usr, mysqli $conn)
     {
-        $query = "SELECT * FROM user WHERE username='$usr->username' and password='$usr->password'";
+        $query = "SELECT * FROM korisnik WHERE username='$usr->username' and password='$usr->password'";
         return $conn->query($query);
     }
 }

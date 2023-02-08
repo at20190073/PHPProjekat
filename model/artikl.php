@@ -39,15 +39,7 @@ class Artikl{
 
     public static function getBySellerId($id, mysqli $conn){
         $query = "SELECT * FROM artikl WHERE IdPro=$id";
-
-        $myObj = array();
-        if($msqlObj = $conn->query($query)){
-            while($red = $msqlObj->fetch_array(1)){
-                $myObj[]= $red;
-            }
-        }
-
-        return $myObj;
+        return $conn->query($query);
 
     }
 
