@@ -56,7 +56,7 @@ if ($podaci->num_rows == 0) {
             <table id="myTable" class="table table-hover table-striped" style="color: black; background-color: grey;">
                 <thead class="thead">
                     <tr>
-                        <th scope="col">Naziv</th>
+                        <th scope="col">Artikl</th>
                         <th scope="col">Cena</th>
                         <th scope="col">Naziv</th>
                         <th scope="col">Id Prodavca</th>
@@ -169,7 +169,7 @@ if ($podaci->num_rows == 0) {
                                         <input id="cena" type="text" name="cena" class="form-control" placeholder="Cena *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input id="IdPro" type="text" name="IdPro" class="form-control" placeholder="IdPro *" value="" />
+                                        <input id="IdPro" type="text" name="IdPro" class="form-control" placeholder="IdPro *" value="<?php echo $_SESSION['user_id'] ?>" />
                                     </div>
                                     <div class="form-group">
                                         <button id="btnIzmeni" type="submit" class="btn btn-success btn-block" style="color: white; background-color: orange; border: 1px solid white"> Izmeni
