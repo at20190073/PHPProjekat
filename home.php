@@ -29,23 +29,23 @@ if ($podaci->num_rows == 0) {
     <link rel="shortcut icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
-    <title>Artikli za prodaju:</title>
+    <title>SveZaKuću</title>
 
 </head>
 
 <body>
 
 
-    <div class="row" style="background-color: rgba(225, 225, 208, 0.5);">
+    <div class="row">
         <div class="col-md-4">
-            <button id="btn" class="btn btn-info btn-block" style="background-color: teal !important; border: 1px solid white; "> Prikazi artikle</button>
+            <button id="btn" class="btn btn-info btn-block" style="background-color:sienna !important; border: 2px solid white;"> Prikazi artikle</button>
         </div>
         <div class="col-md-4">
-            <button id="btn-dodaj" type="button" class="btn btn-success btn-block" style="background-color: teal; border: 1px solid white;" data-toggle="modal" data-target="#myModal"> Dodaj artikl</button>
+            <button id="btn-dodaj" type="button" class="btn btn-success btn-block" style="background-color: sienna; border: 1px solid white;" data-toggle="modal" data-target="#myModal"> Dodaj artikl</button>
 
         </div>
         <div class="col-md-4">
-            <button id="btn-pretraga" class="btn btn-warning btn-block" style="background-color:  teal; border: 1px solid white;"> Pretrazi artikle po imenu</button>
+            <button id="btn-pretraga" class="btn btn-warning btn-block" style="background-color:  sienna; border: 1px solid white;"> Pretrazi artikle po imenu</button>
             <input type="text" id="myInput" onkeyup="funkcijaZaPretragu()" placeholder="Pretrazi artikle po imenu" hidden>
         </div>
     </div>
@@ -92,12 +92,12 @@ if ($podaci->num_rows == 0) {
 
                 </div>
 
-                <div class="col-md-12" style="text-align: right">
-                    <button id="btn-obrisi" formmethod="post" class="btn btn-danger" style="background-color: red; border: 1px solid white;">Obrisi</button>
+                <div class="col-md-1" style="text-align: right">
+                    <button id="btn-obrisi" formmethod="post" class="btn btn-warning" style="background-color: sienna; border: 1px solid white;">Obrisi</button>
                 </div>
 
-                <div class="col-md-2" style="text-align: right;">
-                    <button id="btn-sortiraj" class="btn btn-normal" onclick="sortTable()">Sortiraj</button>
+                <div class="col-md-1" style="text-align: right;">
+                    <button id="btn-sortiraj" class="btn btn-warning" onclick="sortTable()">Sortiraj</button>
                 </div>
 
             </div>
@@ -112,7 +112,7 @@ if ($podaci->num_rows == 0) {
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <div class="container prijava-form">
+                    <div class="container pregled-form">
                         <form action="#" method="post" id="dodajForm">
                             <h3 style="color: black; text-align: center">Dodavanje artikla</h3>
                             <div class="row">
@@ -126,11 +126,11 @@ if ($podaci->num_rows == 0) {
                                         <input type="text" style="border: 1px solid black" name="cena" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="sala">IdProdavca</label>
-                                        <input type="sala" style="border: 1px solid black" name="IdPro" class="form-control" />
+                                        <label for="prodavac">IdProdavca</label>
+                                        <input type="prodavac" style="border: 1px solid black" name="IdPro" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <button id="btnDodaj" type="submit" class="btn btn-success btn-block" tyle="background-color: orange; border: 1px solid black;">Dodaj</button>
+                                        <button id="btnDodaj" type="submit" class="btn btn-warning btn-block" tyle="background-color: orange; border: 1px solid black;">Dodaj</button>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +154,7 @@ if ($podaci->num_rows == 0) {
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <div class="container prijava-form">
+                    <div class="container pregled-form">
                         <form action="#" method="post" id="izmeniForm">
                             <h3 style="color: black">Izmeni artikl</h3>
                             <div class="row">

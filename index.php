@@ -8,10 +8,10 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $uname = $_POST['username'];
     $upass = $_POST['password'];
 
-    // $conn = new mysqli() /// pregazena konekcija iz dbBrokera;
+    
     $korisnik = new Korisnik(1, $uname, $upass, null, null);
-    // $odg = $korisnik->logInUser($uname, $upass, $conn);
-    $odg = Korisnik::logInUser($korisnik, $conn); //pristup statickim funkcijama preko klase
+   
+    $odg = Korisnik::logInUser($korisnik, $conn); 
 
     if($odg->num_rows==1){
         echo  `
@@ -43,18 +43,19 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Pregled artikala</title>
+    <title>Dobrodošli</title>
 
+    
 </head>
 <body>
     <div class="login-form">
         <div class="main-div">
             <form method="POST" action="#">
                 <div class="container">
-                    <label class="username">Korisnicko ime</label>
-                    <input type="text" name="username" class="form-control"  required>
-                    <br>
-                    <label for="password">Lozinka</label>
+                  
+                    <input type="text" name="username" class="form-input"   required>
+                  
+                   
                     <input type="password" name="password" class="form-control" required>
                     <button type="submit" class="btn btn-primary" name="submit">Prijavi se</button>
                 </div>
