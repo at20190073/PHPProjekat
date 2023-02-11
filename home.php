@@ -38,19 +38,19 @@ if ($podaci->num_rows == 0) {
 
     <div class="row" style="background-color: rgba(225, 225, 208, 0.5);">
         <div class="col-md-4">
-            <button id="btn" class="btn btn-info btn-block" style="background-color: teal !important; border: 1px solid white; "> Prikazi artikl</button>
+            <button id="btn" class="btn btn-info btn-block" style="background-color: teal !important; border: 1px solid white; "> Prikazi artikle</button>
         </div>
         <div class="col-md-4">
             <button id="btn-dodaj" type="button" class="btn btn-success btn-block" style="background-color: teal; border: 1px solid white;" data-toggle="modal" data-target="#myModal"> Dodaj artikl</button>
 
         </div>
         <div class="col-md-4">
-            <button id="btn-pretraga" class="btn btn-warning btn-block" style="background-color:  teal; border: 1px solid white;"> Pretrazi artikle</button>
+            <button id="btn-pretraga" class="btn btn-warning btn-block" style="background-color:  teal; border: 1px solid white;"> Pretrazi artikle po imenu</button>
             <input type="text" id="myInput" onkeyup="funkcijaZaPretragu()" placeholder="Pretrazi artikle po imenu" hidden>
         </div>
     </div>
 
-    <div id="pregled" class="panel panel-success" style="margin-top: 1%;">
+    <div id="pregled" class="panel panel-success" style="margin-top: 1%;" hidden=true>
 
         <div class="panel-body">
             <table id="myTable" class="table table-hover table-striped" style="color: black; background-color: grey;">
@@ -73,7 +73,7 @@ if ($podaci->num_rows == 0) {
                             <td><?php echo $red["IdPro"] ?></td>
                             <td>
                                 <label class="custom-radio-btn">
-                                    <input type="radio" name="checked-donut" value=<?php echo $red["IdArt"] ?>>
+                                    <input onclick="EnableIzmeni()" type="radio" name="checked-donut" value=<?php echo $red["IdArt"] ?>>
                                     <span class="checkmark"></span>
                                 </label>
                             </td>
@@ -88,7 +88,7 @@ if ($podaci->num_rows == 0) {
             </table>
             <div class="row">
                 <div class="col-md-1" style="text-align: right">
-                    <button id="btn-izmeni" class="btn btn-warning" data-toggle="modal" data-target="#izmeniModal">Izmeni</button>
+                    <button id="btn-izmeni" disabled class="btn btn-warning" data-toggle="modal" data-target="#izmeniModal">Izmeni</button>
 
                 </div>
 
@@ -208,8 +208,8 @@ if ($podaci->num_rows == 0) {
                 rows = table.rows;
                 for (i = 1; i < (rows.length - 1); i++) {
                     shouldSwitch = false;
-                    x = rows[i].getElementsByTagName("TD")[1];
-                    y = rows[i + 1].getElementsByTagName("TD")[1];
+                    x = rows[i].getElementsByTagName("td")[2];
+                    y = rows[i + 1].getElementsByTagName("td")[2];
                     if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                         shouldSwitch = true;
                         break;

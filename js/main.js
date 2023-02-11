@@ -29,6 +29,10 @@ $('#dodajForm').submit(function(){
     });
 });
 
+function EnableIzmeni(){
+    $('#btn-izmeni').prop('disabled', false);
+}
+
 $('#btn-obrisi').click(function(){
     console.log("Brisanje");
 
@@ -93,21 +97,23 @@ $('#izmeniForm').submit(function () {
     console.log("Izmena");
     const $form = $(this);
     const $inputs = $form.find('input, select, button, textarea');
-    console.log($inputs);
-    const serializedData = $form.serialize();
-    console.log(serializedData);
+    const checked = $('input[name=checked-donut]:checked');
+    var data = $inputs.serializeArray()
+    data[0].value=checked.val();
+    console.log($.param(data));
     $inputs.prop('disabled', true);
 
     reqest = $.ajax({
         url: "handler/update.php",
         type: "post",
-        data: serializedData,
+        data: $.param(data),
     });
 
     request.done(function (response, textStatus, jqXHR) {
-        if (response === 'Success') {
+        console.log(textStatus);
+        if (textStatus == 'success') {
             console.log('Artikl je izmenjen');
-            location.reload();
+            location.reload(true);
         }
         else console.log('Artikl nije izmenjen ' + response);
         console.log(response);
